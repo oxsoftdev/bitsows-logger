@@ -1,4 +1,4 @@
-from bitsows.abstracts.pubsub import AbsSubscriber
+from dppy.behavioral import pubsub
 from multiprocessing import Process, SimpleQueue
 
 
@@ -16,7 +16,7 @@ def worker(q):
                 logger.info(_o)
 
 
-class SimpleLoggerSubscriber(AbsSubscriber):
+class SimpleLoggerSubscriber(pubsub.AbsSubscriber):
 
     def __init__(self, bitsoclient):
         self._bitsoclient = bitsoclient
