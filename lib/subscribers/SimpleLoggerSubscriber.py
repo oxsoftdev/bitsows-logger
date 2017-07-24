@@ -5,8 +5,8 @@ from multiprocessing import Process, SimpleQueue
 def worker(q):
     import logging
     import logging.config
-    import lib.configs.logging
-    logging.config.dictConfig(lib.configs.logging.d)
+    from ..configs.logging import d
+    logging.config.dictConfig(d)
     logger = logging.getLogger('stream')
     while True:
         if not q.empty():

@@ -1,13 +1,17 @@
 import logging.config
 import tornado
-from bitsows.client import BitsoClient
+from bitsoapi import Client as Api
+from bitsows import Client as Websocket
 
 import lib.configs.logging
-from lib.subscribers.simplelogger import SimpleLoggerSubscriber
+from lib.subscribers import SimpleLoggerSubscriber
+
 
 logging.config.dictConfig(lib.configs.logging.d)
 
-with BitsoClient() as client:
+
+books = Api().available_books().books
+with Websocket(books) as client:
     with SimpleLoggerSubscriber(client):
         client.connect()
         try:
