@@ -4,7 +4,7 @@ bitsows client
 ## dependencies
 ```
 pip3 install --user https://github.com/oxsoftdev/bitsoapi/tarball/master
-pip3 install --user https://github.com/oxsoftdev/bitsows/tarball/master
+pip3 install --process-dependency-links --user https://github.com/oxsoftdev/bitsows/tarball/master
 ```
 
 ## run
